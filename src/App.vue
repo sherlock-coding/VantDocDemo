@@ -1,31 +1,49 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+    <van-doc :config="config" active="Vue 组件">
+      <router-view/>
+    </van-doc>
   </div>
 </template>
 
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+<script>
+import docConf from "./doc.conf.js";
+export default {
+  data() {
+    return {
+      config: docConf
+    };
+  }
+};
+</script>
+
+
+<style lang="less">
+.van-doc-intro {
   text-align: center;
-  color: #2c3e50;
-}
-#nav {
-  padding: 30px;
-}
+  font-family: "Dosis", "Source Sans Pro", "Helvetica Neue", Arial, sans-serif;
 
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
+  &__youzan {
+    width: 32px;
+    height: 32px;
+    display: block;
+    margin: 25px 0 0;
+  }
 
-#nav a.router-link-exact-active {
-  color: #42b983;
+  &__logo {
+    width: 120px;
+    height: 120px;
+  }
+
+  h2 {
+    font-size: 36px;
+    line-height: 60px;
+    font-weight: normal;
+  }
+
+  p {
+    font-size: 15px;
+    color: #455a64;
+  }
 }
 </style>
