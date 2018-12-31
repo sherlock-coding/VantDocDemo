@@ -10,6 +10,9 @@ module.exports = {
       .use('@vant/markdown-loader')
         .loader('@vant/markdown-loader')
         .end()
-
+  },
+  pages: {
+    index: 'src/main.js',
+    demo: 'src/demo.js'
   }
 }

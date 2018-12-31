@@ -1,18 +1,30 @@
 <template>
   <div id="app">
-    <van-doc :config="config" active="Vue 组件">
-      <router-view/>
+    <van-doc
+      :config="config"
+      active="Vue 组件"
+      :simulators="simulators"
+      :current-simulator="currentSimulator"
+    >
+      <router-view @changeDemoUrl="onChangeDemoURL"/>
     </van-doc>
   </div>
 </template>
 
 <script>
-import docConf from "./doc.conf.js";
+import docConf from "./router/doc.conf.js";
 export default {
   data() {
     return {
-      config: docConf
+      config: docConf,
+      simulators: [`demo.html${location.hash}`],
+      currentSimulator: 0
     };
+  },
+  methods: {
+    onChangeDemoURL(url) {
+      this.simulators = [this.simulators[0], url];
+    }
   }
 };
 </script>
